@@ -123,7 +123,7 @@ export class Cache<K, V> implements ReadonlyCache<K, V> {
     /**
      * If the element exists, clear its timeout and emit `delete` event.
      * But didn't remove it from storage.
-     * @param key
+     * @param key The key of the element to soft delete.
      */
     private _softDelete(key: K) {
         const entry = this.storage.get(key);
