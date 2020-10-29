@@ -51,6 +51,12 @@ cache.has('A'); // check if cache has key.
 cache.delete('A'); // remove an element from cache.
 
 cache.clear(); // clear the cache.
+
+// restart ttl
+const foo = cache.get('foo', true); // get foo and restart its ttl with default ttl.
+const goo = cache.get('goo', 1000 * 60); // get goo and restart its ttl at 1 minute.
+const hasFoo = cache.restart('foo'); // restart foo ttl with default ttl.
+const hasGoo = cache.restart('goo', 1000 * 60); // restart goo ttl at 1 minute.
 ```
 
 ### Events
