@@ -44,8 +44,7 @@ export class Cache<K, V> implements ReadonlyCache<K, V> {
      * @param ttl Time to live in milliseconds.
      */
     set(key: K, value: V, ttl?: number): this {
-        const prev = this.storage.get(key);
-        if (prev) clearTimeout(prev.timeout);
+        this._softDelete(key);
         if (!ttl) ttl = this.ttl;
         this.storage.set(key, {
             value,
@@ -99,14 +98,8 @@ export class Cache<K, V> implements ReadonlyCache<K, V> {
      * @returns Either or not the element was removed.
      */
     delete(key: K): boolean {
-        const entry = this.storage.get(key);
-        if (entry) {
-            clearTimeout(entry.timeout);
-            this.storage.delete(key);
-            this.emit('delete', key, entry.value);
-            return true;
-        }
-        return false;
+        this._softDelete(key);
+        return this.storage.delete(key);
     }
 
     /**
@@ -125,6 +118,19 @@ export class Cache<K, V> implements ReadonlyCache<K, V> {
      */
     restart(key: K, ttl: number = this.ttl): boolean {
         return this.get(key, ttl) !== undefined;
+    }
+
+    /**
+     * If the element exists, clear its timeout and emit `delete` event.
+     * But didn't remove it from storage.
+     * @param key
+     */
+    private _softDelete(key: K) {
+        const entry = this.storage.get(key);
+        if (entry) {
+            clearTimeout(entry.timeout);
+            this.emit('delete', key, entry.value);
+        }
     }
 }
 
