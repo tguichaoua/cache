@@ -1,16 +1,16 @@
 <h1 align="center">Welcome to cache 👋</h1>
 <p>
   <a href="https://www.npmjs.com/package/@baanloh/cache" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/@baanloh/cache.svg">
+    <img alt="Version" src="https://img.shields.io/npm/v/@baanloh/cache.svg?style=for-the-badge" height="20">
   </a>
   <a href="https://github.com/tguichaoua/cache#readme" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=for-the-badge" height="20" />
   </a>
   <a href="https://github.com/tguichaoua/cache/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-no-lightgrey.svg?style=for-the-badge" height="20" />
   </a>
   <a href="https://github.com/tguichaoua/cache/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/tguichaoua/cache" />
+    <img alt="License: MIT" src="https://img.shields.io/github/license/tguichaoua/cache?style=for-the-badge" height="20" />
   </a>
 </p>
 
